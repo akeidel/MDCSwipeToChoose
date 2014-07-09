@@ -174,7 +174,12 @@ static const CGFloat ChoosePersonButtonVerticalPadding = 20.f;
     ChoosePersonView *personView = [[ChoosePersonView alloc] initWithFrame:frame
                                                                     person:self.people[0]
                                                                    options:options];
+    
+    // cycle through the people instead of only showing each once
+    Person *personToRemove = [self.people objectAtIndex:0];
     [self.people removeObjectAtIndex:0];
+    [self.people addObject:personToRemove];
+
     return personView;
 }
 
